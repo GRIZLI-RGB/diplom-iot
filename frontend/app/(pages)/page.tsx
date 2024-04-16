@@ -6,10 +6,10 @@ import Link from "next/link";
 import { useState } from "react";
 
 import { _userAuth_ } from "../_utils/store";
-import Devices from "./devices/page";
+import Devices from "@/app/_components/Devices/Devices";
 import Logs from "../_components/Logs";
 
-export default function Home() {
+export default function HomePage() {
 	const [authWindow, setAuthWindow] = useState<"register" | "login">("login");
 
 	const [userAuth, setUserAuth] = useAtom(_userAuth_);

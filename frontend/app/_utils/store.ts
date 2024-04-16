@@ -1,3 +1,3 @@
 import { atomWithStorage } from "jotai/utils";
 
-export const _userAuth_ = atomWithStorage("userAuth", false);
+export const _userAuth_ = atomWithStorage<string | boolean>("userAuth", "loading");
