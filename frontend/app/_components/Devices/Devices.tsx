@@ -3,18 +3,21 @@
 import { Heading, Flex, Text, Box } from "@chakra-ui/react";
 import Device from "./Device";
 import DevicesFilters from "./DevicesFilters";
+import { usePathname } from "next/navigation";
 
-export default function Devices({ devices }: { devices?: Device[] }) {
+export default function Devices({ devices, onEditClickDevice }: { devices?: Device[]; onEditClickDevice: () => void }) {
+	const pathname = usePathname();
+
 	return (
-		<>
-			<Heading>Доступные устройства</Heading>
-			<DevicesFilters />
+		<Flex direction={"column"}>
+			{pathname === "/" && <Heading>Подключённые устройства</Heading>}
+			{!(pathname === "/") && <DevicesFilters />}
 			<Flex className="w-full">
 				{devices ? (
 					<Flex mt={5} direction={"column"} gap={2} className="w-full">
 						{devices.map(device => (
 							<Box key={device.id}>
-								<Device device={device} />
+								<Device onEditClick={onEditClickDevice} device={device} />
 							</Box>
 						))}
 					</Flex>
@@ -24,6 +27,6 @@ export default function Devices({ devices }: { devices?: Device[] }) {
 					</Text>
 				)}
 			</Flex>
-		</>
+		</Flex>
 	);
 }

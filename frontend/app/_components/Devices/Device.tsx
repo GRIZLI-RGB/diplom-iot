@@ -5,7 +5,7 @@ import { Text, Box, Flex, IconButton, Switch } from "@chakra-ui/react";
 import clsx from "clsx";
 import { BiBulb, BiCamera, BiTargetLock } from "react-icons/bi";
 
-export default function Device({ device }: { device: Device }) {
+export default function Device({ device, onEditClick }: { device: Device; onEditClick: () => void }) {
 	return (
 		<Box
 			borderWidth="1px"
@@ -25,7 +25,7 @@ export default function Device({ device }: { device: Device }) {
 				</Flex>
 				<Switch colorScheme="teal" size="md" />
 			</Flex>
-			<Flex align="flex-end" mt={4} justify="space-between">
+			<Flex align="flex-end" mt={4} justify="space-between" gap={10}>
 				<Flex direction={"column"}>
 					<Text fontSize="13px" fontWeight={500} color={device.is_connected ? "green" : "red"}>
 						{device.is_connected ? "Подключено" : "Не подключено"}
@@ -36,7 +36,7 @@ export default function Device({ device }: { device: Device }) {
 				</Flex>
 				<Flex align="center" justify="space-between" gap={2}>
 					<IconButton size="sm" aria-label="" icon={<DeleteIcon />} />
-					<IconButton size="sm" aria-label="" icon={<EditIcon />} />
+					<IconButton size="sm" aria-label="" icon={<EditIcon />} onClick={onEditClick} />
 				</Flex>
 			</Flex>
 		</Box>

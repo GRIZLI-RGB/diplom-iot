@@ -7,9 +7,7 @@ export default function ProfilePage() {
 	const [username, setUsername] = useState("GRIZLI");
 	const [password, setPassword] = useState("123456789");
 
-	const handleSave = () => {
-		// Здесь можно добавить логику для сохранения новых данных пользователя
-	};
+	const handleSave = () => {};
 
 	return (
 		<div>
