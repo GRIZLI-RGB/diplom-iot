@@ -74,7 +74,7 @@ export default function HomePage() {
 			)}
 			{userAuth && (
 				<Flex gap={16} alignItems={"stretch"} className="h-[60vh]">
-					<Devices />
+					<Devices onEditClickDevice={() => {}} />
 					<div className="w-px min-h-full h-full bg-black/20" />
 					<Logs />
 				</Flex>

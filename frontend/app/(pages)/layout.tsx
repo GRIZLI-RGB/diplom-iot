@@ -27,7 +27,7 @@ export default function PagesLayout({ children }: { children: React.ReactNode })
 	return (
 		<div className="h-full">
 			<Menu />
-			<main className="ml-[15%] mr-40 py-10 h-full flex-middle">{children}</main>
+			<main className="ml-[15%] mr-40 py-10 min-h-full flex-middle">{children}</main>
 		</div>
 	);
 }

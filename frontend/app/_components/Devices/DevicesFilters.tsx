@@ -3,6 +3,7 @@
 import { Box, Flex, Select, Text } from "@chakra-ui/react";
 
 export default function DevicesFilters() {
+    // @ts-ignore
 	const handleGroup = by => {};
 
 	return (

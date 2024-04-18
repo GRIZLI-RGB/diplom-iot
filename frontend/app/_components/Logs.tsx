@@ -1,4 +1,5 @@
 import { Flex, Heading, Text, Box } from "@chakra-ui/react";
+import { usePathname } from "next/navigation";
 
 const DATA = [
 	{ timestamp: "12.10.2024, (15:32)", action: "Включено устройство 1" },
@@ -9,12 +10,14 @@ const DATA = [
 ];
 
 export default function Logs() {
+	const pathname = usePathname();
+
 	return (
 		<section>
-			<Heading>Последнии действия</Heading>
+			{pathname === "/" && <Heading mb={10}>Последнии действия</Heading>}
 			<Flex>
 				{DATA ? (
-					<Box mt={10}>
+					<Box>
 						{DATA.map((log, index) => (
 							<Box key={index} py="2" px={3} border="1px" borderColor="gray.200" borderRadius="md" mb="2">
 								<Text fontSize="sm">
