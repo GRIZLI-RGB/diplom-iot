@@ -9,15 +9,6 @@ Base.metadata.create_all(engine)
 
 app = FastAPI(title="IoT", openapi_prefix="/api")
 
-admin = Admin(app, engine)
-
-from sqladmin import ModelView
-
-class LogsInAdminPanel(ModelView, model=Log):
-    column_list = [Log.id]
-
-admin.add_view(LogsInAdminPanel)
-
 @app.middleware("http")
 async def db_session_middleware(request, call_next):
     request.state.db = SessionLocal()
