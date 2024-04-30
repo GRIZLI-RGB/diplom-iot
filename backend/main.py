@@ -1,9 +1,6 @@
-from typing import Union
 from fastapi import FastAPI
 from utils.database import SessionLocal, Base, engine
 from routes import router
-from sqladmin import Admin
-from models.log import Log
 
 Base.metadata.create_all(engine)
 
