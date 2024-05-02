@@ -1,15 +1,6 @@
 from pydantic import BaseModel
 from enum import Enum
 
-# class UserCreate(BaseModel):
-#     username: str
-#     password: str
-#
-# class UserInDB(BaseModel):
-#     id: int
-#     username: str
-#
-
 
 class Login(BaseModel):
     login: str

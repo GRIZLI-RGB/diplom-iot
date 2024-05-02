@@ -4,7 +4,7 @@ from routes import router
 
 Base.metadata.create_all(engine)
 
-app = FastAPI(title="IoT", openapi_prefix="/api")
+app = FastAPI(title="IoT", root_path="/api")
 
 @app.middleware("http")
 async def db_session_middleware(request, call_next):
